@@ -2,35 +2,38 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <!-- 모바일에서도 맥북 PC 버전 화면 비율로 온전히 보이도록 1280px 고정 뷰포트 설정 -->
+  <!-- 모바일에서도 PC 데스크탑 화면 레이아웃으로 넓고 시원하게 보이도록 뷰포트 설정 -->
   <meta name="viewport" content="width=1280, initial-scale=0.3, minimum-scale=0.2, maximum-scale=2.0, user-scalable=yes">
   <title>인스타그램 & 스레드 신규 계정 생성 및 AI 자동화 완벽 가이드</title>
   
-  <!-- Pretendard & Inter Web Fonts -->
+  <!-- Pretendard Web Fonts -->
   <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
   <!-- FontAwesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
   <style>
     :root {
-      --bg-desktop: linear-gradient(135deg, #e0eafc 0%, #cfdef3 50%, #e2ebf0 100%);
-      --mac-window-bg: rgba(255, 255, 255, 0.95);
-      --mac-border: rgba(0, 0, 0, 0.08);
-      --text-main: #1d1d1f;
-      --text-muted: #6e6e73;
-      --text-light: #86868b;
-      --accent-blue: #0071e3;
-      --accent-purple: #7928ca;
-      --accent-pink: #ff0080;
-      --insta-gradient: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-      --threads-dark: #101010;
-      --card-bg: #ffffff;
-      --card-border: #e5e5ea;
-      --tag-bg: #f5f5f7;
-      --code-bg: #f6f8fa;
-      --shadow-window: 0 24px 60px rgba(0, 0, 0, 0.15), 0 4px 16px rgba(0, 0, 0, 0.06);
-      --shadow-card: 0 4px 14px rgba(0, 0, 0, 0.04);
-      --radius-xl: 18px;
+      --bg-page: #f8fafc;
+      --bg-surface: #ffffff;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --text-light: #64748b;
+      --border-color: #e2e8f0;
+      --border-subtle: #f1f5f9;
+      --accent-blue: #2563eb;
+      --accent-blue-light: #eff6ff;
+      --accent-purple: #7c3aed;
+      --accent-purple-light: #f5f3ff;
+      --accent-green: #10b981;
+      --accent-green-light: #ecfdf5;
+      --accent-orange: #f59e0b;
+      --accent-orange-light: #fffbeb;
+      --accent-red: #ef4444;
+      --accent-red-light: #fef2f2;
+      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.04);
+      --radius-xl: 16px;
       --radius-lg: 12px;
       --radius-md: 8px;
     }
@@ -44,154 +47,108 @@
 
     body {
       font-family: "Pretendard", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      background: var(--bg-desktop);
+      background-color: var(--bg-page);
       color: var(--text-main);
       min-width: 1280px;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 0 0 60px 0;
-      overflow-x: auto;
+      padding-bottom: 80px;
     }
 
-    /* macOS Top Menu Bar */
-    .mac-menubar {
+    /* Top Global Header */
+    .site-header {
       width: 100%;
-      height: 32px;
-      background: rgba(255, 255, 255, 0.75);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0 16px;
-      font-size: 13px;
-      font-weight: 500;
+      background: #ffffff;
+      border-bottom: 1px solid var(--border-color);
       position: sticky;
       top: 0;
       z-index: 1000;
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+      box-shadow: var(--shadow-sm);
     }
 
-    .mac-menubar-left, .mac-menubar-right {
+    .header-inner {
+      width: 1200px;
+      margin: 0 auto;
+      height: 64px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 24px;
+    }
+
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--text-main);
+    }
+
+    .brand-icon-wrap {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+    }
+
+    .brand-icon-wrap i.fa-instagram {
+      font-size: 24px;
+      color: #e1306c;
+    }
+
+    .brand-icon-wrap i.fa-threads {
+      font-size: 24px;
+      color: #000000;
+    }
+
+    .brand-title {
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+    }
+
+    .header-right {
       display: flex;
       align-items: center;
       gap: 16px;
     }
 
-    .mac-menubar-left span {
-      cursor: pointer;
-      color: #1d1d1f;
-      transition: opacity 0.15s;
-    }
-
-    .mac-menubar-left span:hover {
-      opacity: 0.7;
-    }
-
-    .apple-icon {
-      font-size: 14px;
-      margin-right: 4px;
-    }
-
-    /* macOS App Window Container */
-    .macbook-window {
-      width: 1200px;
-      margin-top: 24px;
-      background: var(--mac-window-bg);
-      border-radius: var(--radius-xl);
-      box-shadow: var(--shadow-window);
-      border: 1px solid var(--mac-border);
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      animation: fadeIn 0.4s ease-out;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    /* macOS Window Titlebar */
-    .window-titlebar {
-      height: 48px;
-      background: #f8f8fa;
-      border-bottom: 1px solid var(--card-border);
-      display: flex;
+    .github-btn {
+      display: inline-flex;
       align-items: center;
-      padding: 0 18px;
-      position: relative;
-      user-select: none;
-    }
-
-    .traffic-lights {
-      display: flex;
       gap: 8px;
-      margin-right: 20px;
-    }
-
-    .dot {
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      display: inline-block;
-    }
-
-    .dot.red { background-color: #ff5f56; border: 1px solid #e0443e; }
-    .dot.yellow { background-color: #ffbd2e; border: 1px solid #dea123; }
-    .dot.green { background-color: #27c93f; border: 1px solid #1aab29; }
-
-    .window-address-bar {
-      flex: 1;
-      max-width: 600px;
-      margin: 0 auto;
-      background: #ffffff;
-      border: 1px solid #e1e1e6;
+      padding: 8px 16px;
+      background: #0f172a;
+      color: #ffffff;
       border-radius: 8px;
-      height: 30px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 12.5px;
-      color: var(--text-muted);
-      gap: 8px;
-      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
+      text-decoration: none;
+      font-size: 13.5px;
+      font-weight: 600;
+      transition: background-color 0.2s;
     }
 
-    .window-address-bar i {
-      color: #34c759;
-      font-size: 11px;
+    .github-btn:hover {
+      background: #334155;
     }
 
-    .window-actions {
-      display: flex;
-      gap: 12px;
-      font-size: 14px;
-      color: var(--text-muted);
-    }
-
-    /* Window Header / Hero Banner */
-    .hero-banner {
-      background: linear-gradient(135deg, #ffffff 0%, #f4f6fb 100%);
-      padding: 44px 48px;
-      border-bottom: 1px solid var(--card-border);
-      position: relative;
+    /* Main Container */
+    .main-container {
+      width: 1200px;
+      margin-top: 32px;
+      background: var(--bg-surface);
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--border-color);
+      box-shadow: var(--shadow-md);
       overflow: hidden;
     }
 
-    .hero-banner::after {
-      content: "";
-      position: absolute;
-      top: -50px;
-      right: -50px;
-      width: 320px;
-      height: 320px;
-      background: radial-gradient(circle, rgba(255, 0, 128, 0.08) 0%, rgba(0, 113, 227, 0.05) 50%, transparent 70%);
-      border-radius: 50%;
-      pointer-events: none;
+    /* Hero Banner */
+    .hero-banner {
+      background: linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%);
+      padding: 44px 48px;
+      border-bottom: 1px solid var(--border-color);
+      position: relative;
     }
 
     .badge-wrap {
@@ -208,100 +165,91 @@
       border-radius: 20px;
       font-size: 12px;
       font-weight: 600;
-      background: #f0f2f5;
-      color: var(--text-main);
     }
 
-    .badge.insta {
-      background: rgba(225, 48, 108, 0.1);
-      color: #e1306c;
-    }
-
-    .badge.threads {
-      background: rgba(16, 16, 16, 0.08);
-      color: #111;
-    }
-
-    .badge.ai {
-      background: rgba(0, 113, 227, 0.1);
-      color: #0071e3;
-    }
+    .badge.insta { background: rgba(225, 48, 108, 0.1); color: #e1306c; }
+    .badge.threads { background: rgba(15, 23, 42, 0.08); color: #0f172a; }
+    .badge.ai { background: rgba(37, 99, 235, 0.1); color: #2563eb; }
 
     .hero-title {
-      font-size: 32px;
+      font-size: 30px;
       font-weight: 800;
-      letter-spacing: -0.8px;
-      line-height: 1.3;
+      letter-spacing: -0.6px;
+      line-height: 1.35;
       margin-bottom: 12px;
-      color: #111827;
+      color: #0f172a;
     }
 
     .hero-subtitle {
-      font-size: 16px;
+      font-size: 15.5px;
       color: var(--text-muted);
-      line-height: 1.6;
-      max-width: 820px;
+      line-height: 1.65;
+      max-width: 880px;
     }
 
-    /* Navigation Tabs */
+    /* Tab Navigation */
     .tab-navigation {
       display: flex;
-      background: #fafafc;
+      background: #f8fafc;
       padding: 8px 32px;
       gap: 12px;
-      border-bottom: 1px solid var(--card-border);
+      border-bottom: 1px solid var(--border-color);
       position: sticky;
-      top: 32px;
+      top: 64px;
       z-index: 90;
-      backdrop-filter: blur(10px);
     }
 
     .tab-btn {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 10px 18px;
-      font-size: 14px;
+      padding: 11px 20px;
+      font-size: 14.5px;
       font-weight: 600;
-      color: var(--text-muted);
-      border: none;
+      color: var(--text-light);
+      border: 1px solid transparent;
       background: transparent;
-      border-radius: 8px;
+      border-radius: var(--radius-md);
       cursor: pointer;
-      transition: all 0.2s;
+      transition: all 0.2s ease;
     }
 
     .tab-btn:hover {
-      background: #eef1f6;
+      background: #e2e8f0;
       color: var(--text-main);
     }
 
     .tab-btn.active {
       background: #ffffff;
       color: var(--accent-blue);
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+      border-color: var(--border-color);
+      box-shadow: var(--shadow-sm);
     }
 
-    /* Content Area */
-    .window-body {
-      padding: 36px 44px;
-      background: #fcfdfe;
+    /* Tab Content Area */
+    .content-body {
+      padding: 40px 48px;
+      background: #ffffff;
     }
 
     .tab-pane {
       display: none;
-      animation: fadeIn 0.3s ease-out;
+      animation: fadeIn 0.25s ease-out;
     }
 
     .tab-pane.active {
       display: block;
     }
 
-    /* Section Styles */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
     .section-title {
       font-size: 22px;
       font-weight: 700;
-      color: #111827;
+      color: #0f172a;
       margin-bottom: 8px;
       display: flex;
       align-items: center;
@@ -319,7 +267,7 @@
     .grid-2 {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 20px;
+      gap: 24px;
       margin-bottom: 28px;
     }
 
@@ -330,19 +278,19 @@
       margin-bottom: 28px;
     }
 
-    /* Cards */
+    /* Modern Cards */
     .card {
-      background: var(--card-bg);
-      border: 1px solid var(--card-border);
+      background: #ffffff;
+      border: 1px solid var(--border-color);
       border-radius: var(--radius-lg);
       padding: 24px;
-      box-shadow: var(--shadow-card);
+      box-shadow: var(--shadow-sm);
       transition: transform 0.2s, box-shadow 0.2s;
     }
 
     .card:hover {
       transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.07);
+      box-shadow: var(--shadow-md);
     }
 
     .card-header {
@@ -353,32 +301,32 @@
     }
 
     .card-icon {
-      width: 40px;
-      height: 40px;
+      width: 42px;
+      height: 42px;
       border-radius: 10px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 18px;
+      font-size: 19px;
       flex-shrink: 0;
     }
 
-    .card-icon.blue { background: rgba(0, 113, 227, 0.1); color: #0071e3; }
-    .card-icon.green { background: rgba(52, 199, 89, 0.1); color: #34c759; }
-    .card-icon.orange { background: rgba(255, 149, 0, 0.1); color: #ff9500; }
-    .card-icon.red { background: rgba(255, 59, 48, 0.1); color: #ff3b30; }
-    .card-icon.purple { background: rgba(175, 82, 222, 0.1); color: #af52de; }
+    .card-icon.blue { background: var(--accent-blue-light); color: var(--accent-blue); }
+    .card-icon.green { background: var(--accent-green-light); color: var(--accent-green); }
+    .card-icon.orange { background: var(--accent-orange-light); color: var(--accent-orange); }
+    .card-icon.red { background: var(--accent-red-light); color: var(--accent-red); }
+    .card-icon.purple { background: var(--accent-purple-light); color: var(--accent-purple); }
 
     .card-title {
       font-size: 16px;
       font-weight: 700;
-      color: #1f2937;
+      color: #0f172a;
     }
 
     .card-body {
       font-size: 14px;
-      line-height: 1.6;
-      color: #4b5563;
+      line-height: 1.65;
+      color: #334155;
     }
 
     .card-body ul {
@@ -403,20 +351,20 @@
     }
 
     .callout.tip {
-      background: #eff6ff;
-      border-left: 4px solid #3b82f6;
+      background: var(--accent-blue-light);
+      border-left: 4px solid var(--accent-blue);
       color: #1e40af;
     }
 
     .callout.warning {
-      background: #fffbeb;
-      border-left: 4px solid #f59e0b;
+      background: var(--accent-orange-light);
+      border-left: 4px solid var(--accent-orange);
       color: #92400e;
     }
 
     .callout.danger {
-      background: #fef2f2;
-      border-left: 4px solid #ef4444;
+      background: var(--accent-red-light);
+      border-left: 4px solid var(--accent-red);
       color: #991b1b;
     }
 
@@ -428,10 +376,10 @@
     /* Comparison Table */
     .table-container {
       background: #ffffff;
-      border: 1px solid var(--card-border);
+      border: 1px solid var(--border-color);
       border-radius: var(--radius-lg);
       overflow: hidden;
-      box-shadow: var(--shadow-card);
+      box-shadow: var(--shadow-sm);
       margin-bottom: 28px;
     }
 
@@ -443,17 +391,17 @@
     }
 
     th {
-      background: #f9fafb;
+      background: #f8fafc;
       padding: 14px 18px;
       font-weight: 600;
-      color: #374151;
-      border-bottom: 1px solid var(--card-border);
+      color: #334155;
+      border-bottom: 1px solid var(--border-color);
     }
 
     td {
       padding: 14px 18px;
-      border-bottom: 1px solid #f3f4f6;
-      color: #4b5563;
+      border-bottom: 1px solid var(--border-subtle);
+      color: #475569;
       vertical-align: middle;
     }
 
@@ -462,27 +410,26 @@
     }
 
     tr:hover td {
-      background-color: #fafbfc;
+      background-color: #f8fafc;
     }
 
-    /* Image Display Container */
+    /* Image Showcase */
     .image-showcase {
       background: #ffffff;
-      border: 1px solid var(--card-border);
+      border: 1px solid var(--border-color);
       border-radius: var(--radius-lg);
       padding: 16px;
       margin-bottom: 30px;
-      box-shadow: var(--shadow-card);
+      box-shadow: var(--shadow-sm);
       text-align: center;
     }
 
     .image-showcase img {
       width: 100%;
       height: auto;
-      max-height: 520px;
+      max-height: 540px;
       object-fit: contain;
       border-radius: 8px;
-      border: 1px solid #f0f0f4;
     }
 
     .image-caption {
@@ -492,53 +439,53 @@
       font-weight: 500;
     }
 
-    /* Code Snippet Box */
+    /* Code Block Preview */
     .code-block {
-      background: #24292e;
-      color: #f6f8fa;
+      background: #0f172a;
+      color: #f8fafc;
       border-radius: var(--radius-md);
-      padding: 16px 20px;
+      padding: 18px 22px;
       font-family: "SFMono-Regular", Consolas, Menlo, monospace;
       font-size: 13px;
-      line-height: 1.5;
+      line-height: 1.55;
       overflow-x: auto;
-      position: relative;
       margin: 16px 0;
     }
 
     .code-header {
       display: flex;
       justify-content: space-between;
-      color: #8b949e;
+      align-items: center;
+      color: #94a3b8;
       font-size: 12px;
-      margin-bottom: 10px;
-      border-bottom: 1px solid #30363d;
-      padding-bottom: 6px;
+      margin-bottom: 12px;
+      border-bottom: 1px solid #334155;
+      padding-bottom: 8px;
     }
 
     .copy-btn {
-      background: #30363d;
+      background: #334155;
       border: none;
-      color: #c9d1d9;
-      padding: 4px 10px;
+      color: #ffffff;
+      padding: 5px 12px;
       border-radius: 4px;
-      font-size: 11px;
+      font-size: 11.5px;
+      font-weight: 600;
       cursor: pointer;
       transition: background 0.15s;
     }
 
     .copy-btn:hover {
-      background: #484f58;
-      color: #ffffff;
+      background: #475569;
     }
 
-    /* Interactive Checklist */
+    /* Checklist */
     .checklist-group {
       background: #ffffff;
-      border: 1px solid var(--card-border);
+      border: 1px solid var(--border-color);
       border-radius: var(--radius-lg);
-      padding: 20px 24px;
-      box-shadow: var(--shadow-card);
+      padding: 22px 26px;
+      box-shadow: var(--shadow-sm);
       margin-bottom: 24px;
     }
 
@@ -546,9 +493,10 @@
       display: flex;
       align-items: center;
       gap: 12px;
-      padding: 10px 0;
-      border-bottom: 1px solid #f3f4f6;
+      padding: 11px 0;
+      border-bottom: 1px solid var(--border-subtle);
       font-size: 14px;
+      color: #1e293b;
     }
 
     .check-item:last-child {
@@ -558,73 +506,56 @@
     .check-item input[type="checkbox"] {
       width: 18px;
       height: 18px;
-      accent-color: #0071e3;
+      accent-color: var(--accent-blue);
       cursor: pointer;
     }
 
-    /* Footer in Window */
-    .window-footer {
-      background: #f8f9fa;
-      border-top: 1px solid var(--card-border);
-      padding: 18px 44px;
+    /* Modern Footer */
+    .site-footer {
+      background: #f8fafc;
+      border-top: 1px solid var(--border-color);
+      padding: 22px 48px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      font-size: 13px;
-      color: var(--text-muted);
+      font-size: 13.5px;
+      color: var(--text-light);
     }
 
-    .window-footer a {
+    .site-footer a {
       color: var(--accent-blue);
       text-decoration: none;
-      font-weight: 500;
+      font-weight: 600;
     }
 
-    .window-footer a:hover {
+    .site-footer a:hover {
       text-decoration: underline;
     }
   </style>
 </head>
 <body>
 
-  <!-- macOS Top Menu Bar -->
-  <div class="mac-menubar">
-    <div class="mac-menubar-left">
-      <span><i class="fa-brands fa-apple apple-icon"></i> <strong>Threads & Insta Auto Hub</strong></span>
-      <span>File</span>
-      <span>Edit</span>
-      <span>View</span>
-      <span>Workflow</span>
-      <span>API</span>
-      <span>Help</span>
+  <!-- Top Global Clean Header -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="#" class="brand-logo">
+        <div class="brand-icon-wrap">
+          <i class="fa-brands fa-instagram"></i>
+          <i class="fa-brands fa-threads"></i>
+        </div>
+        <span class="brand-title">Instagram & Threads AI Automation Hub</span>
+      </a>
+      <div class="header-right">
+        <a href="https://github.com/heekeunlee/add_insta_thread" target="_blank" class="github-btn">
+          <i class="fa-brands fa-github"></i> GitHub Repository
+        </a>
+      </div>
     </div>
-    <div class="mac-menubar-right">
-      <span><i class="fa-solid fa-wifi"></i> 100%</span>
-      <span><i class="fa-solid fa-battery-full"></i></span>
-      <span id="current-time">16:20</span>
-      <span><i class="fa-solid fa-magnifying-glass"></i></span>
-    </div>
-  </div>
+  </header>
 
-  <!-- Main MacBook Application Window -->
-  <div class="macbook-window">
-    <!-- Window Titlebar -->
-    <div class="window-titlebar">
-      <div class="traffic-lights">
-        <span class="dot red" title="Close"></span>
-        <span class="dot yellow" title="Minimize"></span>
-        <span class="dot green" title="Maximize"></span>
-      </div>
-      <div class="window-address-bar">
-        <i class="fa-solid fa-lock"></i>
-        <span>github.com/heekeunlee/add_insta_thread • <strong>Light Mode Desktop Edition</strong></span>
-      </div>
-      <div class="window-actions">
-        <i class="fa-solid fa-arrow-rotate-right" title="새로고침" onclick="location.reload()" style="cursor: pointer;"></i>
-        <i class="fa-solid fa-share-nodes" title="공유"></i>
-      </div>
-    </div>
-
+  <!-- Main Content Card Container -->
+  <main class="main-container">
+    
     <!-- Hero Banner Header -->
     <div class="hero-banner">
       <div class="badge-wrap">
@@ -632,14 +563,14 @@
         <span class="badge threads"><i class="fa-brands fa-threads"></i> Threads 연동</span>
         <span class="badge ai"><i class="fa-solid fa-robot"></i> AI 자동화 가이드</span>
       </div>
-      <h1 class="hero-title">인스타그램 & 스레드 계정 생성 및 AI 자동화 핵심 가이드</h1>
+      <h1 class="hero-title">인스타그램 & 스레드 신규 계정 생성 및 AI 자동화 완벽 가이드</h1>
       <p class="hero-subtitle">
         휴면 계정 보유 상태에서 새 계정 생성 팁, 전화번호/이메일 재사용 규칙, 계정 웜업(Warm-up) 전략, 스레드 추천 알고리즘 공략 및 공식 API 기반 자동화 파이프라인을 체계적으로 정리한 실무 레퍼런스입니다.
       </p>
     </div>
 
     <!-- Tab Navigation -->
-    <div class="tab-navigation">
+    <nav class="tab-navigation">
       <button class="tab-btn active" onclick="openTab('tab1', this)">
         <i class="fa-solid fa-user-plus"></i> 1. 계정 생성 & 설정 팁
       </button>
@@ -655,19 +586,19 @@
       <button class="tab-btn" onclick="openTab('tab5', this)">
         <i class="fa-solid fa-list-check"></i> 5. 실행 체크리스트
       </button>
-    </div>
+    </nav>
 
-    <!-- Window Body Container -->
-    <div class="window-body">
+    <!-- Tab Body Content -->
+    <div class="content-body">
       
       <!-- TAB 1: 계정 생성 및 세팅 꿀팁 -->
       <div id="tab1" class="tab-pane active">
-        <h2 class="section-title"><i class="fa-solid fa-circle-info" style="color:#0071e3;"></i> 신규 계정 생성 및 핵심 세팅 꿀팁</h2>
+        <h2 class="section-title"><i class="fa-solid fa-circle-info" style="color:var(--accent-blue);"></i> 신규 계정 생성 및 핵심 세팅 꿀팁</h2>
         <p class="section-desc">기존 계정(A)이 있는 상태에서 신규 계정(B)을 독립적으로 생성하고 보안 및 API 연동을 대비하는 방법입니다.</p>
 
         <div class="image-showcase">
-          <img src="images/account_warmup_guide.jpg" alt="계정 생성 및 웜업 가이드 인포그래픽">
-          <p class="image-caption">▲ [단계별 흐름] 신규 인스타그램 가입 ➔ 3~5일간 수동 웜업 ➔ 안전한 API 연동 준비</p>
+          <img src="images/account_warmup_guide.jpg" alt="인스타그램 및 스레드 신규 계정 생성 및 웜업 가이드">
+          <p class="image-caption">▲ [단계별 흐름] 신규 인스타그램 가입 ➔ 3~5일간 수동 웜업 ➔ 안전한 API 연동 완료</p>
         </div>
 
         <div class="table-container">
@@ -682,17 +613,17 @@
             <tbody>
               <tr>
                 <td><strong>인스타 계정(B) 추가</strong></td>
-                <td><span style="color:#34c759; font-weight:700;">● 가능</span> (최대 5개)</td>
+                <td><span style="color:#10b981; font-weight:700;">● 가능</span> (최대 5개)</td>
                 <td>인스타그램 앱은 단일 기기에서 최대 5개 계정의 간편 전환을 기본 지원합니다.</td>
               </tr>
               <tr>
                 <td><strong>전화번호 재사용</strong></td>
-                <td><span style="color:#34c759; font-weight:700;">● 재사용 가능</span></td>
+                <td><span style="color:#10b981; font-weight:700;">● 재사용 가능</span></td>
                 <td>기존 A 계정에 등록된 휴대폰 번호로 B 계정 본인인증을 받아도 정상 통과됩니다.</td>
               </tr>
               <tr>
                 <td><strong>이메일 주소</strong></td>
-                <td><span style="color:#ff9500; font-weight:700;">▲ 별도 이메일 필요</span></td>
+                <td><span style="color:#f59e0b; font-weight:700;">▲ 별도 이메일 필요</span></td>
                 <td>동일 이메일 재가입 시 기존 계정 병합 안내가 뜸. <strong>Gmail 별칭(Alias)</strong> 사용 권장.</td>
               </tr>
               <tr>
@@ -716,7 +647,7 @@
               <div class="card-title">Gmail 별칭(Alias) 활용 꿀팁</div>
             </div>
             <div class="card-body">
-              새 이메일을 새로 파지 않고 기존 Gmail에 <code>+</code> 태그를 붙여 새 계정으로 가입할 수 있습니다.
+              새 이메일을 따로 만들지 않고 기존 Gmail에 <code>+</code> 태그를 붙여 독립 계정으로 가입할 수 있습니다.
               <ul>
                 <li>기존 이메일: <code>myname@gmail.com</code></li>
                 <li>새 계정 가입 이메일: <code>myname+threads@gmail.com</code></li>
@@ -744,7 +675,7 @@
 
       <!-- TAB 2: 계정 웜업 (차단 방지) -->
       <div id="tab2" class="tab-pane">
-        <h2 class="section-title"><i class="fa-solid fa-fire" style="color:#ff9500;"></i> 차단·정지 방지를 위한 '계정 웜업(Warm-up)'</h2>
+        <h2 class="section-title"><i class="fa-solid fa-fire" style="color:#f59e0b;"></i> 차단·정지 방지를 위한 '계정 웜업(Warm-up)'</h2>
         <p class="section-desc">신규 계정 생성 직후 자동화 API나 대량 포스팅을 붙이면 90% 이상 확률로 스팸 봇으로 분류되어 정지(Shadowban)됩니다. 3~5일간의 웜업이 필수입니다.</p>
 
         <div class="callout danger">
@@ -852,12 +783,12 @@
 
       <!-- TAB 3: 스레드 알고리즘 공략 -->
       <div id="tab3" class="tab-pane">
-        <h2 class="section-title"><i class="fa-solid fa-bullhorn" style="color:#af52de;"></i> 스레드(Threads) 알고리즘 노출 극대화 전략</h2>
+        <h2 class="section-title"><i class="fa-solid fa-bullhorn" style="color:var(--accent-purple);"></i> 스레드(Threads) 알고리즘 노출 극대화 전략</h2>
         <p class="section-desc">스레드는 트위터/인스타그램과 다른 고유의 추천 알고리즘을 가집니다. 도달률을 5배 이상 높이는 핵심 공식입니다.</p>
 
         <div class="image-showcase">
-          <img src="images/threads_algo_strategy.jpg" alt="스레드 알고리즘 공략 다이어그램">
-          <p class="image-caption">▲ [알고리즘 3대 원칙] ① 첫 댓글 링크 분리 ② 소통 유도형 질문 엔딩 ③ 페디버스(Fediverse) 연동</p>
+          <img src="images/threads_algo_strategy.jpg" alt="스레드 추천 알고리즘 노출 극대화 3대 공식">
+          <p class="image-caption">▲ [알고리즘 3대 공식] ① 첫 댓글 링크 전략 ② 질문형 엔딩 유도 ③ 페디버스(Fediverse) 연동</p>
         </div>
 
         <div class="grid-3">
@@ -911,12 +842,12 @@
 
       <!-- TAB 4: AI 자동화 파이프라인 -->
       <div id="tab4" class="tab-pane">
-        <h2 class="section-title"><i class="fa-solid fa-gears" style="color:#0071e3;"></i> 안전한 AI 자동화 구축 파이프라인</h2>
+        <h2 class="section-title"><i class="fa-solid fa-gears" style="color:var(--accent-blue);"></i> 안전한 AI 자동화 구축 파이프라인</h2>
         <p class="section-desc">계정 정지 위험이 있는 웹 매크로를 배제하고, 공식 Meta Threads API와 Google Gemini / OpenAI를 연결하는 안전한 아키텍처입니다.</p>
 
         <div class="image-showcase">
-          <img src="images/ai_automation_architecture.jpg" alt="공식 Threads API vs 웹 매크로 비교 아키텍처">
-          <p class="image-caption">▲ [보안 비교] 공식 Meta Threads API (안전·권장) vs 웹 브라우저 매크로(Selenium) 스팸 차단 위험</p>
+          <img src="images/ai_automation_architecture.jpg" alt="AI 자동화 아키텍처 비교 다이어그램">
+          <p class="image-caption">▲ [보안 비교] 안전 및 공식 추천: 메타 공식 스레드 API vs 위험 및 계정 정지: 웹 매크로 스크래핑 봇</p>
         </div>
 
         <div class="grid-2">
@@ -1007,11 +938,11 @@ def post_to_threads(text_content):
 
       <!-- TAB 5: 실행 체크리스트 -->
       <div id="tab5" class="tab-pane">
-        <h2 class="section-title"><i class="fa-solid fa-clipboard-check" style="color:#34c759;"></i> 단계별 인터랙티브 실행 체크리스트</h2>
+        <h2 class="section-title"><i class="fa-solid fa-clipboard-check" style="color:var(--accent-green);"></i> 단계별 인터랙티브 실행 체크리스트</h2>
         <p class="section-desc">계정 생성부터 자동화 활성화까지 체크하며 진행해 보세요. 브라우저에 저장됩니다.</p>
 
         <div class="checklist-group">
-          <h3 style="font-size:16px; margin-bottom:12px; color:#1f2937;">1단계: 계정 생성 및 기본 보안</h3>
+          <h3 style="font-size:16px; margin-bottom:12px; color:#0f172a;">1단계: 계정 생성 및 기본 보안</h3>
           <div class="check-item">
             <input type="checkbox" id="chk1" onchange="saveCheck('chk1')">
             <label for="chk1">기존 Gmail에 <code>+alias</code>를 붙여 독립된 인스타그램 계정(B) 가입 완료</label>
@@ -1031,7 +962,7 @@ def post_to_threads(text_content):
         </div>
 
         <div class="checklist-group">
-          <h3 style="font-size:16px; margin-bottom:12px; color:#1f2937;">2단계: 3~5일 웜업(Warm-up)</h3>
+          <h3 style="font-size:16px; margin-bottom:12px; color:#0f172a;">2단계: 3~5일 웜업(Warm-up)</h3>
           <div class="check-item">
             <input type="checkbox" id="chk5" onchange="saveCheck('chk5')">
             <label for="chk5">스레드 앱 다운로드 및 프로필 사진/소개글(Bio) 완성</label>
@@ -1051,7 +982,7 @@ def post_to_threads(text_content):
         </div>
 
         <div class="checklist-group">
-          <h3 style="font-size:16px; margin-bottom:12px; color:#1f2937;">3단계: Meta 개발자 등록 및 API 연동</h3>
+          <h3 style="font-size:16px; margin-bottom:12px; color:#0f172a;">3단계: Meta 개발자 등록 및 API 연동</h3>
           <div class="check-item">
             <input type="checkbox" id="chk9" onchange="saveCheck('chk9')">
             <label for="chk9">Meta for Developers (<a href="https://developers.facebook.com/" target="_blank">developers.facebook.com</a>) 로그인 및 새 앱 생성</label>
@@ -1078,16 +1009,17 @@ def post_to_threads(text_content):
 
     </div>
 
-    <!-- Window Footer -->
-    <div class="window-footer">
+    <!-- Clean Modern Footer -->
+    <footer class="site-footer">
       <div>
         <strong>GitHub Repository:</strong> <a href="https://github.com/heekeunlee/add_insta_thread" target="_blank">github.com/heekeunlee/add_insta_thread</a>
       </div>
       <div>
-        <span>Designed for Apple macOS Light Mode • Desktop View Fixed</span>
+        <span>Instagram & Threads AI Automation Knowledge Base</span>
       </div>
-    </div>
-  </div>
+    </footer>
+
+  </main>
 
   <script>
     // Tab switching logic
@@ -1106,17 +1038,6 @@ def post_to_threads(text_content):
         setTimeout(() => { btn.innerText = 'Copy Code'; }, 2000);
       });
     }
-
-    // Time ticker for macOS top bar
-    function updateTime() {
-      const now = new Date();
-      const hours = String(now.getHours()).padStart(2, '0');
-      const mins = String(now.getMinutes()).padStart(2, '0');
-      const timeElem = document.getElementById('current-time');
-      if (timeElem) timeElem.innerText = `${hours}:${mins}`;
-    }
-    setInterval(updateTime, 1000);
-    updateTime();
 
     // Interactive checklist persistence (localStorage)
     function saveCheck(id) {
